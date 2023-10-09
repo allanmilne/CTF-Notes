@@ -1,4 +1,4 @@
-# OverTheWire Bandit - Level 3
+# OverTheWire Bandit - Level 2 → Level 3
 
 ## Objective
 

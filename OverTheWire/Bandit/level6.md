@@ -1,11 +1,19 @@
-# OverTheWire Bandit - Level 6
+# OverTheWire Bandit - Level 5 → Level 6
 
 ## Objective
 
-The password for the next level is stored somewhere under the `inhere` directory and has all of the following properties:
+Locate a file under the `inhere` directory that is:
 - Human-readable
 - 1033 bytes in size
 - Not executable
+
+## Write-Up
+
+After successfully SSHing into the level, I navigated to the `inhere` directory. This directory contains several subdirectories named from `maybehere00` to `maybehere19`. The task is to find a human-readable file of a specific size (1033 bytes) that is not executable.
+
+I chose to use the `find` command to search recursively for files that match the given criteria. The `find` command is versatile and offers several options to filter by file type and size. I used the `-type f` flag to specify that I was looking for regular files and `-size 1033c` to specify the file size in bytes.
+
+Running this command, I located the file `./maybehere07/.file2` that met all the conditions. A quick `cat` of the file revealed the password for the next level.
 
 ## Concepts and Skills
 
@@ -13,56 +21,58 @@ The password for the next level is stored somewhere under the `inhere` directory
 - Recursive search
 - Bash commands (`find`, `cat`)
 
-## Tools Used
+## Useful
 
-- SSH client
-- Linux terminal
+### `find` command flags
 
-## Pre-Requisites
+**Find Files by Type**
+- `f`: a regular file
+- `d`: directory
+- `l`: symbolic link
+- `c`: character devices
+- `b`: block devices
+- `p`: named pipe (FIFO)
+- `s`: socket
 
-- Completed Bandit Level 5
-- SSH client installed
-- Basic understanding of Linux terminal commands
+**Find Files by Size**
+- `b`: 512-byte blocks (default)
+- `c`: bytes
+- `w`: two-byte words
+- `k`: Kilobytes
+- `M`: Megabytes
+- `G`: Gigabytes
 
-## Code Snippets and Commands
+## Commands
 
 1. SSH into the level:
     ```bash
-    ssh bandit5@bandit.labs.overthewire.org -p 2220
+    ssh bandit6@bandit.labs.overthewire.org -p 2220
     ```
-   Use the password: `lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR`
+   Password: `P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU`
 
-2. Navigate to the `inhere` directory and list all files:
+2. Navigate to the `inhere` directory:
     ```bash
-    cd inhere
-    ls -la
+    cd inhere; ls -la
     ```
 
-3. Use `find` command to search for the file based on the properties:
+3. Use the `find` command to locate the file:
     ```bash
     find -type f -size 1033c
     ```
 
-## Solution Walkthrough
+4. Reveal the password:
+    ```bash
+    cat ./maybehere07/.file2
+    ```
 
-1. SSH into the level and navigate to the `inhere` directory.
+## References
 
-2. Use `ls -la` to see multiple directories named `maybehere00` through `maybehere19`.
-
-3. The `find` command is employed to perform a recursive search for files with specific characteristics.
-
-4. Running `find -type f -size 1033c` reveals the file `./maybehere07/.file2`.
-
-5. `cat ./maybehere07/.file2` reveals the password for the next level: `P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU`.
+- [How to Find Files in Linux Using the Command Line](https://linuxize.com/post/how-to-find-files-in-linux-using-the-command-line/)
 
 ## Lessons Learned
 
-- Familiarized with the `find` command and its flags for searching based on file properties.
-- Understood the importance of recursive search when dealing with nested directories.
-
-## Additional Resources
-
-- [Man page for find command](https://linux.die.net/man/1/find)
+- The `find` command is a powerful tool for searching files based on multiple attributes.
+- Using the `man` command to read the manual can be very helpful for understanding complex commands and their flags.
 
 ## Tags
 
