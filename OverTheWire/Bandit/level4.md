@@ -55,9 +55,16 @@ The password for the next level is stored in a hidden file within the `inhere` d
 
 - Understood the importance of the `-a` flag in `ls` for showing hidden files.
 
-## Additional Resources
+## ls command flags
 
-- N/A
+- `-F`: Append indicators to filenames
+- `-l`: Detailed information about files
+- `-L`: Follow symlinks
+- `-a`: Display all files
+- `-h`: Human-readable sizes
+- `-t`: Sort by modification time
+- `-R`: Recursive listing
+- `--color`: Colorized output
 
 ## Tags
 

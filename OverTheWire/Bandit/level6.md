@@ -46,7 +46,9 @@ Running this command, I located the file `./maybehere07/.file2` that met all the
 
 1. SSH into the level:
     ```bash
-    ssh bandit6@bandit.labs.overthewire.org -p 2220
+    ssh bandit5@bandit.labs.overthewire.org -p 2220
+    ```
+   Use the password: `lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR`
     ```
    Password: `P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU`
 
