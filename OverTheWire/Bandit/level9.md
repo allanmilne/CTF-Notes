@@ -10,7 +10,7 @@ The password for the next level is stored in the file `data.txt` and is the only
 After SSH-ing into the current level with `ssh bandit8@bandit.labs.overthewire.org -p 2220` and the password provided, I verify that `data.txt` is in the current directory by running `ls -la`.
 
 ### Strategy
-Reading the uniq man page, I notice that `uniq` only identifies adjacent repeated lines. To make identical lines adjacent and removable by `uniq`, I need to `sort` the lines first.
+Reading the `uniq` man page, I notice that `uniq` only identifies adjacent repeated lines. To make identical lines adjacent and removable by `uniq`, I need to `sort` the lines first.
 
 ### Solution
 To find the unique line, I use `sort` to sort the lines of `data.txt` and pipe (`|`) that sorted output to `uniq -u`:
